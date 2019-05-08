@@ -1,4 +1,4 @@
- const PLAYER_MOVE_SPEED = 50;
+const PLAYER_MOVE_SPEED = 50;
 var invulnerable = false;
 var shoot;
 var shooting = false;
@@ -133,6 +133,7 @@ function Robbo() {
 
             
             if(dist == 0){
+               if (fx) {ae[1].play()}
                 // console.log('dead')
                 // console.log(this.health)
                 if(!this.invulnerable){
@@ -164,13 +165,28 @@ function Robbo() {
                     this.lives = 3;
                 }                                       
             }
+            if (tile == HUD) {
+                this.health--;
+                setTimeout(function() {
+                    player1.x = previousX;
+                    player1.y = previousY;
+                if (fx) {ae[1].play()}
+                }, 50)
+                
+
+            }
             if (tile == TILE_KEY) {
                 worldGrid[arrayIndex] = TILE_GROUND;
                 this.keys++;
+                if (fx) {ae[2].play();}
                                
             } else if (tile == TILE_DOOR && this.keys > 0) {
-                worldGrid[arrayIndex] = TILE_DOOR_O;
-                this.keys--;
+                if (this.keys > 0) {
+                    worldGrid[arrayIndex] = TILE_DOOR_O;
+                    this.keys--;
+                   if (fx) { ae[4].play()}
+                } 
+                
             } else if (tile == TILE_GOAL) {
                 // debugger
                 ++currentLevel;
@@ -180,6 +196,15 @@ function Robbo() {
                 if (this.keyHeld_Right && worldGrid[arrayIndex+1] == HUD){
                     worldGrid[arrayIndex]= TILE_GROUND;
                     worldGrid[arrayIndex+1]=MOVE_GROUND;
+                } else if (this.keyHeld_Left && worldGrid[arrayIndex-1] == HUD){
+                    worldGrid[arrayIndex]= TILE_GROUND;
+                    worldGrid[arrayIndex-1]=MOVE_GROUND;
+                } else if (this.keyHeld_Up && worldGrid[arrayIndex- WORLD_COLS] == HUD){
+                    worldGrid[arrayIndex]= TILE_GROUND;
+                    worldGrid[arrayIndex-WORLD_COLS]=MOVE_GROUND;
+                } else if (this.keyHeld_Down && worldGrid[arrayIndex+WORLD_COLS] == HUD){
+                    worldGrid[arrayIndex]= TILE_GROUND;
+                    worldGrid[arrayIndex+WORLD_COLS]=MOVE_GROUND;
                 }
             
                 else if (this.x <previousX || this.x > previousX){
@@ -210,7 +235,12 @@ function Robbo() {
                     }
                 }
                 }
-                    if (!(tile == TILE_GROUND || tile ==TILE_DOOR_O || tile == MOVE_GROUND)) {
+                    if (!(tile == TILE_GROUND || tile ==TILE_DOOR_O || tile == MOVE_GROUND || tile == HUD)) {
+                        if (tile == TILE_DOOR) {
+
+                    if (fx) {ae[3].play()}
+                    }
+                        
                 this.x = previousX;
                 this.y = previousY;
                 }                              
@@ -256,20 +286,20 @@ function Robbo() {
 
     this.moveArrow = function(){//intervalo iniciado
 
-        // var arrowX = storeArrows[arrowIndex].x;
-        // var arrowY = storeArrows[arrowIndex].y;
+        var arrowX = storeArrows[arrowIndex].x;
+        var arrowY = storeArrows[arrowIndex].y;
 
-        // var x1 = bat1.x
-        // var y1 = bat1.y
+        var x1 = bat1.x
+        var y1 = bat1.y
 
-        // var vx = arrowX - x1
-        // var vy = arrowY - y1
+        var vx = arrowX - x1
+        var vy = arrowY - y1
 
-        // var dist = Math.sqrt(vx ** 2 + vy ** 2)
+        var dist = Math.sqrt(vx ** 2 + vy ** 2)
 
-        // console.log('dist', dist)
-        // console.log(vx, vy)
-
+        console.log('dist', dist)
+        console.log(vx, vy)
+        if (dist == 0) { if (fx) {ae[0].play()}}
     var bulletVel= 1;
 
 
@@ -283,6 +313,7 @@ function Robbo() {
             if(storeArrows[arrowIndex].x == bat1.x && storeArrows[arrowIndex].y == bat1.y){
                 console.log("   PINCHE MURCIELAGOOOOOOOOOO")
                 worldGrid[arrayIndex] = BLOOD
+                // ae[0].play()
 
                 delete(bat1.x)
                 delete(bat1.y)

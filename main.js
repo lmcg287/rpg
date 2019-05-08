@@ -2,27 +2,78 @@ var canvas, canvasContext;
 
 var player1 = new Robbo();
 var bat1 = new Bat();
+var musicCount = 0
 
 window.onload = function() {
+        loadAudio();
+}
+function options() {
+    var options = document.getElementById('options')
+    options.style.display = 'none'
+
+    var options2 = document.getElementById('menu2')
+    menu2.style.display = 'block'
+}
+var musicPaused = false;
+var fx = true;
+function music(stop) {
+
+    if (stop) {
+        console.log('e')
+        if (musicPaused) {
+            au[musicCount-1].play();
+            musicPaused = false;
+        } else {
+            musicPaused = true;
+        au[musicCount-1].pause();
+        }
+    } else {
+
+    au[musicCount].play()
+    au[musicCount].onended = music
+    musicCount++
+    }
+}
+function video() {
+    var video1 = document.getElementById('video1')
+    var video2 = document.getElementById('video2')
+
+    canvas.style.filter = 'brightness('+video1.value/100+') contrast('+video2.value/100+')';
+
+}
+function fxF() {
+    fx = !fx;
+    console.log(fx)
+}
+function loadGame() {
+    var el = document.getElementById('menu')
+    el.style.display = 'none'
+// window.onload = function() {
 
     canvas = document.getElementById('gameCanvas');
+    canvas.style.display = 'block';
+    canvas.requestFullscreen()
+    // canvas.width = 800
+    // canvas.height = 700
     canvasContext = canvas.getContext('2d');
     colorRect(0, 0, canvas.width, canvas.height, 'black');
     // debugger;
     loadImages();
+    music()
 };
-
+var interval;
+var interval1;
 function imagesLoaded() {
 
     var framesPerSecond = 10;
     
-    setInterval(updateAll, 1000/framesPerSecond);
+    interval1 = setInterval(updateAll, 1000/framesPerSecond);
 
     setupInput();
     loadLevel(levelList[currentLevel]);
     // bat1.move1();
     // var interval2 = setInterval(function(){bat1.move2();},500);
-    var interval = setInterval(function(){bat1.move();},500);
+    interval = setInterval(function(){bat1.move();},500);
 
   
 

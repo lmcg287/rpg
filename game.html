@@ -3,7 +3,24 @@
 
  <head>
  	<meta charset="utf-8">
-    <title>Resize HTML5 canvas dynamically | www.htmlcheats.com</title>
+    <title>Dungeons & Puzzles</title>
+    <script>
+       var t0 = performance.now();
+       test()
+      function test() {
+        console.clear()
+
+        var t = performance.now()
+
+        console.log(1/(t - t0 ) *1000)
+        t0 = t;
+
+        window.requestAnimationFrame(arguments.callee)
+
+      }
+     
+     
+    </script>
     <style>
     html, body {
       width: 100%;
@@ -13,10 +30,223 @@
       overflow: hidden; /*  Disable scrollbars */
       display: block;  /* No floating content on sides */
     }
+      .menu {
+      /*filter:opacity(.7);*/
+      filter: contrast(1.7);
+      background-image: url('./menu/scifi_main_menu_0.jpg');
+      height:100vh;
+      width:100vw;
+      background-position:center;
+      padding-top:270px;
+      overflow:hidden;
+
+    }
+    .button {
+      background-image: url('./menu/buttonStock1.png');
+      background-repeat:no-repeat;
+      display:flex;
+      /*align-items:center;*/
+      justify-content:center;
+      position:relative;
+      top:-200px;
+      /*background-size:fill;*/
+      margin:100px 0;
+      height:80px;
+      width:100%;
+      text-align:center;
+      
+      /*vertical-align:baseline;*/
+      /*vertical-align:middle;*/
+      font-size:37px;
+      line-height:100%;
+      color:rgba(255,255,255, .9);
+      background-position:center;
+    }
+    .button:hover {
+      background-image: url('./menu/buttonStock1h.png');
+    }
+    .button:active {
+      background-image: url('./menu/buttonStock1d.png');
+    }
+    /*.cent {
+      background-image: url('image.png');
+      background-size:cover;
+      position:absolute;
+      width:600px;
+      height:600px;
+    }*/
+    span {
+      margin-top:17px;
+    }
+    img {
+      transform:scale(2, 2);
+      padding:0 100px;
+    }
+    input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  background: black;
+  border-radius: 1.3px;
+  border: 0.2px solid black;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  border: 1px solid black;
+  height: 26px;
+  width: 16px;
+  border-radius: 3px;
+  background: black;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: black;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  /*animate: 0.2s;*/
+  /*box-shadow: 1px 1px 1px black, 0px 0px 1px black;*/
+  background-image: linear-gradient(to right, rgba(255, 0, 0, .6), rgba(0 ,0 ,0 , .8));
+  /*border-radius: 1.3px;*/
+  /*border: 0.2px solid black;*/
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  /*border: 1px solid black;*/
+  height: 26px;
+  width: 16px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .6);
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 6.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: red;
+  border-color: red;
+  border-width: 16px 0;
+  color: red;
+}
+input[type=range]::-ms-fill-lower {
+  background: black;
+  background:red;
+  border: 0.2px solid black;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+}
+input[type=range]::-ms-fill-upper {
+  background: black;
+  background:red;
+  border: 0.2px solid black;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  border: 1px solid black;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  /*background: #ffffff;*/
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: black;
+  background:red;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: black;
+  background:red;
+}
+label {
+  color:rgba(255, 255, 255, .5);
+  font-size:20px;
+}
+.menu2 {
+  /*filter:opacity(.7);*/
+  filter: contrast(1.7);
+  background-image: url('./menu/scifi_main_menu_0.jpg');
+  height:100vh;
+  width:100vw;
+  background-position:center;
+  padding-top:170px;
+  overflow:hidden;
+}
+
+label, input {
+  position:relative;
+  top:200px;
+
+}
+.submenu {
+  background-image:url('./menu/buttonStock1h.png');
+  background-repeat:no-repeat;
+  height:600px;
+ background-size: 700px 1200px;
+ background-position: 350px -300px;
+}
+canvas {
+  filter:contrast(1.2);
+}
     </style>
 
 <body>
-    <canvas id="gameCanvas" width="800" height="700"></canvas>
+    <canvas id="gameCanvas" style='display:none;'width="800" height="700"></canvas>
+
+    <div id='menu'class='menu'>
+    <h1 style='margin-top:-70px;font-size:100px;
+  text-align:center;color:rgba(255, 255, 255, 0.2);'>Dungeons & Puzzles</h1>
+  <div style='display:block;margin:auto;width:525px;'>
+     <img src="./images/ww.png"  style='display:inline-block;'>
+    <img src="./images/bat.png" style='display:inline-block;'>
+  </div>
+
+    <div class='align'>
+      <div onmousedown='loadGame()'class="button" style='margin-top:400px;'><span>PLAY</span></div>
+    </div>
+  </div>
+  <div id='options'class='menu'style='display:none;'>
+    <div class='align'>
+      <div class="button"onmousedown='pauseFn(null, true)'><span>CONTINUE</span></div>
+      <div class="button"onmousedown='reset()'><span>RESET</span></div>
+      <div class="button"onmousedown='options()'><span>OPTIONS</span></div>
+    </div>
+  </div>
+  <!-- <div class='instructions menu'>
+    
+  </div> -->
+  <div id='menu2' class='menu2'style='display:none;'>
+    <div class="submenu">
+      <label style='position:relative;left:35%;display:block;margin:auto'for="music">MUSIC</label>
+      <input type="checkbox" checked onchange='music(true)' class='music'style='width:450px;display:block;margin:auto;'>
+      <label style='position:relative;left:35%;display:block;margin:auto'for="fx">FX</label>
+      <input type="checkbox" checked onchange='fxF()' class='fx'style='width:450px;display:block;margin:auto;'>
+      <label style='position:relative;left:35%;display:block;margin:auto'for="brightness">BRIGHTNESS</label>
+      <input oninput='video()'max='200'min='0'value='100'id='video1'type="range" class='brightness'style='width:450px;display:block;margin:auto;'>
+      <label style='position:relative;left:35%;display:block;margin:auto'for="contrast">CONTRAST</label>
+      <input oninput='video()'max='200'min='0'value='140'id='video2'type="range" class='contrast'style='width:450px;display:block;margin:auto;'>
+      
+    </div>
+    
+
+  </div>]
+
 <script src = "levels.js"></script>
 
 <script src = "draw.js"></script>

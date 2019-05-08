@@ -4,8 +4,63 @@ var worldPics = [];
 var enemies = [];
 var picsToLoad = 0;
 var numbers=[];
+var ae = [];
+var audioFx = {
+    'GoblinDeath':{
+        'src':'./GoblinDeath.ogg'
+    },
+    'aargh1':{
+        'src':'./aargh1.ogg'
+    },
+    'upshort':{
+        'src':'./upshort.ogg'
+    },
+    'door_lock':{
+        'src':'door_lock copy 2.mp3'
+    },
+    'open_door_3':{
+        'src':'open_door_3 copy 2.mp3'
+    }
+}
+var audioList = {
+    '42b4b':{
+        'src':'./audio/42b4b.ogg'
+    },
+    'A Darkness Opus':{
+        'src':'./audio/A Darkness Opus.ogg'
+    },
+    'Dark Quest':{
+        'src':'./audio/Dark Quest.ogg'
+    },
+    'Devilish design':{
+        'src':'./audio/Devilish design.mp3'
+    },
+    'flaremain':{
+        'src':'./audio/flaremain.ogg'
+    },
+    'gtbass':{
+        'src':'./audio/gtbass.ogg'
+    },
+    'Path to Lake Land':{
+        'src':'./audio/Path to Lake Land.ogg'
+    },
+    
+};
+var au = []
 // var imageList = [{imgVar, filePath},{worldType, filePath},{enemy, filePath}]
-
+function loadAudio() {
+    console.log('e')
+    for (var audio in audioList) {
+        var temp = new Audio();
+        temp.src = audioList[audio].src
+        au.push(temp);
+    }
+    for (var audio in audioFx) {
+        var temp = new Audio;
+        temp.src = audioFx[audio].src;
+        ae.push(temp);
+    }
+}
 function countLoadedImagesAndLaunchIfReady() {
 
     picsToLoad--;
@@ -50,6 +105,7 @@ function loadImages() {
         { worldType: HUD_HEART, filePath: "./images/hud_heart.png" },
         { worldType: HUD, filePath: "./images/hud.png" },
         { enemy: ENEMY_BAT, filePath: "./images/bat.png" },
+        { enemy: ENEMY_GIANT, filePath: "./images/ww.png"},
         { worldType: N0, filePath: "./images/0.png"},
         { worldType: N1, filePath: "./images/1.png"},
         { worldType: N2, filePath: "./images/2.png"},

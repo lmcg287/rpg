@@ -32,7 +32,8 @@ const N9 = 20;
 const ARROW = 21;
 const BOW = 22;
 const BLOOD = 23;
-const MOVE_GROUND =24;
+const MOVE_GROUND = 24;
+const ENEMY_GIANT = 25;
 function tileIsBat(tile){
     return (tile == ENEMY_BAT);
 }
@@ -44,6 +45,7 @@ function tileTypeHasTransparency(tile) {
             tile == TILE_KEY ||
             tile == TILE_DOOR_O ||
             tile == MOVE_GROUND
+
             // tile == ENEMY_BAT
             );
 }
@@ -89,7 +91,7 @@ function drawWorlds() {
     for(var eachRow=0;eachRow<WORLD_ROWS;eachRow++) {
         for(var eachCol=0;eachCol<WORLD_COLS;eachCol++) {
             var tileK = worldGrid[x1];
-            console.log(x1)
+            // console.log(x1)
 
             // console.log(tileK)
                         var useImg = worldPics[tileK];

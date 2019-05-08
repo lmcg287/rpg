@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.menu {
+			/*filter:opacity(.7);*/
+			filter: contrast(1.7);
+			background-image: url('scifi_main_menu_0.jpg');
+			height:100vh;
+			width:100vw;
+			background-position:center;
+			padding-top:170px;
+			overflow:hidden;
+
+		}
+		.button {
+			background-image: url('buttonStock1.png');
+			background-repeat:no-repeat;
+			display:flex;
+			/*align-items:center;*/
+			justify-content:center;
+			position:relative;
+			/*top:400px;*/
+			/*background-size:fill;*/
+			margin:20px 0;
+			height:80px;
+			width:100%;
+			text-align:center;
+			
+			/*vertical-align:baseline;*/
+			/*vertical-align:middle;*/
+			font-size:37px;
+			line-height:100%;
+			color:rgba(255,255,255, .9);
+			background-position:center;
+		}
+		.button:hover {
+			background-image: url('buttonStock1h.png');
+		}
+		.button:active {
+			background-image: url('buttonStock1d.png');
+		}
+		/*.cent {
+			background-image: url('image.png');
+			background-size:cover;
+			position:absolute;
+			width:600px;
+			height:600px;
+		}*/
+		span {
+			margin-top:17px;
+		}
+	</style>
+</head>
+<body>
+	<div class='menu'>
+		<h1 style='margin-top:200px;font-size:200px;
+	text-align:center;color:rgba(255, 255, 255, 0.1)'>GAME</h1>
+		<div class="cent"></div>
+		<div class='align'>
+			<div class="button"><span>PLAY</span></div>
+		</div>
+	</div>
+	<script>
+
+		var menuImg = {
+			'background': {
+				'src':'scifi_main_menu_0.jpg'
+			},
+			'button1':{
+				'src':'buttonStock1.png'
+			},
+			'button2':{
+				'src':'buttonStock1d.png'
+			},
+			'button3':{
+				'src':'buttonStock1h.png'
+			}
+
+		}
+
+		for (var img in menuImg) {
+			menu[img].image = new Image();
+			menu[img].image.src = menu[img].src;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    * {
+      padding:0;
+      margin:0;
+      overflow:hidden;
+    }
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  background: black;
+  border-radius: 1.3px;
+  border: 0.2px solid black;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  border: 1px solid black;
+  height: 26px;
+  width: 16px;
+  border-radius: 3px;
+  background: black;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: black;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  /*animate: 0.2s;*/
+  /*box-shadow: 1px 1px 1px black, 0px 0px 1px black;*/
+  background-image: linear-gradient(to right, rgba(255, 0, 0, .6), rgba(0 ,0 ,0 , .8));
+  /*border-radius: 1.3px;*/
+  /*border: 0.2px solid black;*/
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  /*border: 1px solid black;*/
+  height: 26px;
+  width: 16px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .6);
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 6.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: red;
+  border-color: red;
+  border-width: 16px 0;
+  color: red;
+}
+input[type=range]::-ms-fill-lower {
+  background: black;
+  background:red;
+  border: 0.2px solid black;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+}
+input[type=range]::-ms-fill-upper {
+  background: black;
+  background:red;
+  border: 0.2px solid black;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  border: 1px solid black;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  /*background: #ffffff;*/
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: black;
+  background:red;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: black;
+  background:red;
+}
+label {
+	color:rgba(255, 255, 255, .5);
+	font-size:20px;
+}
+.menu2 {
+	/*filter:opacity(.7);*/
+	filter: contrast(1.7);
+	background-image: url('scifi_main_menu_0.jpg');
+	height:100vh;
+	width:100vw;
+	background-position:center;
+	padding-top:170px;
+	overflow:hidden;
+}
+
+label, input {
+  position:relative;
+  top:200px;
+
+}
+.submenu {
+  background-image:url('./buttonStock1h.png');
+  background-repeat:no-repeat;
+  height:600px;
+ background-size: 700px 1200px;
+ background-position: 350px -300px;
+}
+
+	</style>
+
+
+
+</head>
+<body>
+	<div class='menu2'>
+    <div class="submenu">
+      <label style='position:relative;left:35%;display:block;margin:auto'for="music">MUSIC</label>
+      <input type="checkbox" class='music'style='width:450px;display:block;margin:auto;'>
+      <label style='position:relative;left:35%;display:block;margin:auto'for="fx">FX</label>
+      <input type="checkbox" class='fx'style='width:450px;display:block;margin:auto;'>
+      <label style='position:relative;left:35%;display:block;margin:auto'for="brightness">BRIGHTNESS</label>
+      <input type="range" class='brightness'style='width:450px;display:block;margin:auto;'>
+      <label style='position:relative;left:35%;display:block;margin:auto'for="contrast">CONTRAST</label>
+      <input type="range" class='contrast'style='width:450px;display:block;margin:auto;'>
+      
+    </div>
+		
+
+	</div>
+	
+	
+</body>
+</html>
